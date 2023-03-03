@@ -13,13 +13,13 @@ on:
   workflow_dispatch:
     
 jobs:
-  build:
-    runs-on: windows
+  build_windows:
+    runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v2
     
-    - name: hash
+    - name: Hash
       shell: cmd
       working-directory: ./
       run: echo '%GITHUB_SHA:~0,7%' > test.txt
