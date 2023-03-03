@@ -35,13 +35,13 @@ jobs:
     - name: Get hash
       shell: cmd
       working-directory: ./
-      run: echo '%GITHUB_SHA%' > hash.txt
+      run: echo %GITHUB_SHA% > hash.txt
       
     - name: Get tag
       shell: cmd
       working-directory: ./
       if: startsWith(github.ref, 'refs/tags/')
-      run: echo '%GITHUB_REF_NAME%' > hash.txt
+      run: echo %GITHUB_REF_NAME% > hash.txt
     
     - name: Build
       run: npm run build --if-present
@@ -50,4 +50,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: test_file
-        path: ./Build/
+        path: ./Build/Test/win64/
