@@ -30,4 +30,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
+    
+    - name: Get hash
+    - shell: cmd
+    - run: echo '%GITHUB_SHA%' > hash.txt
+    
+    - name: Build
     - run: npm run build --if-present
