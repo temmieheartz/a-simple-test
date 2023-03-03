@@ -2,11 +2,11 @@ var app = {
 
 	fs: require('fs'),
 	nwbuilder: require('nw-builder'),
-
-	console.info(this.fs.readFileSync('hash.txt', 'utf8'));
 	
 	compile: function(){
 
+		var cHash = this.fs.readFileSync('hash.txt', 'utf8')
+		
 		const nw = new this.nwbuilder({
 
 			appName: 'Test',
@@ -26,8 +26,8 @@ var app = {
 
 			// Windows settings
 			winVersionString: {
+				'FileVersion': cHash,
 				'ProductName': 'Test',
-				'FileVersion': 'Unknown',
 				'ProductShortName': 'Test',
 				'CompanyName': '...|--|...',
 				'CompanyShortName': '...|--|...',
