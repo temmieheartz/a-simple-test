@@ -3,6 +3,8 @@ var app = {
 	fs: require('fs'),
 	nwbuilder: require('nw-builder'),
 
+	console.info(this.fs.readFileSync('hash.txt', 'utf8'));
+	
 	compile: function(){
 
 		const nw = new this.nwbuilder({
