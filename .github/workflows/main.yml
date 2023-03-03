@@ -1,0 +1,25 @@
+
+name: CI
+
+on:
+  push:
+    branches: 
+      - '*'
+      
+  pull_request:
+    branches:
+      - '*'
+  
+  workflow_dispatch:
+    
+jobs:
+  build:
+    runs-on: windows
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: hash
+      shell: cmd
+      working-directory: ./
+      run: echo '%GITHUB_SHA:~0,7%' > test.txt
